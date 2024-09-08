@@ -5,4 +5,14 @@
   - HTML-React-Parse: It is library allows you to parse and render HTML content in a React component.
   - React-Hook-Form: It is a library for managing form state and validation in React applications. It helps simplify form handling by using hooks, making it more performant and easier to manage.
 
-## 
+## ENV 
+``` 
+VITE_APPWRITE_URL = ""
+VITE_APPWRITE_PROJECT_ID = "" 
+VITE_APPWRITE_DATABASE_ID = ""
+VITE_APPWRITE_COLLECTION_ID = ""
+VITE_APPWRITE_STROAGE_ID = "" 
+```
+
+## Other
+regexr.com
