@@ -3,6 +3,7 @@ import {Container, Logo, LogoutBtn} from '../index'
 import { Link } from 'react-router-dom'
 import {useSelector} from 'react-redux'
 import { useNavigate } from 'react-router-dom'
+import '../../customCss.css'
 
 function Header() {
   const authStatus = useSelector((state) => state.auth.status)
@@ -38,35 +39,45 @@ function Header() {
 
 
   return (
-    <header className='py-3 shadow bg-gray-500'>
-      <Container>
-        <nav className='flex'>
-          <div className='mr-4'>
-            <Link to='/'>
-              <Logo width='70px'   />
-
-              </Link>
-          </div>
-          <ul className='flex ml-auto'>
-            {navItems.map((item) => 
+    <header className="bg-gray-900 text-white py-3 shadow-md">
+    <Container>
+      <nav className="flex items-center justify-between">
+        <div className="flex items-center">
+          <Link to="/">
+            <Logo width="70px" />
+          </Link>
+        </div>
+        <ul className="flex space-x-4">
+          {navItems.map((item) => (
             item.active ? (
               <li key={item.name}>
                 <button
-                onClick={() => navigate(item.slug)}
-                className='inline-bock px-6 py-2 duration-200 hover:bg-blue-100 rounded-full'
-                >{item.name}</button>
+                  onClick={() => navigate(item.slug)}
+                  className="
+                    px-6 py-2
+                    text-blue-400
+                    bg-gray-800
+                    rounded-full
+                    hover:bg-blue-700
+                    hover:text-white
+                    transition-colors
+                    duration-300
+                  "
+                >
+                  {item.name}
+                </button>
               </li>
             ) : null
-            )}
-            {authStatus && (
-              <li>
-                <LogoutBtn />
-              </li>
-            )}
-          </ul>
-        </nav>
-        </Container>
-    </header>
+          ))}
+          {authStatus && (
+            <li>
+              <LogoutBtn />
+            </li>
+          )}
+        </ul>
+      </nav>
+    </Container>
+  </header>
   )
 }
 
